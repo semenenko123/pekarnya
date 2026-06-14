@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настоящий хлеб - Торты</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        /* Блок 1: Верхний баннер */
+        .header-container {
+            position: relative;
+            width: 100%;
+            height: 180px; 
+            overflow: hidden;
+        }
+        .header-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .brand-title {
+            position: absolute;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            color: #C25A27;
+            font-size: 56px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .brand-title a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .brand-title a:hover {
+            opacity: 0.9;
+        }
+
+        /* Общий контейнер */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Секция возврата и заголовка */
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        /* Кнопка НАЗАД */
+        .back-box {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #5A2E17;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .back-box svg {
+            width: 28px;
+            height: 28px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            color: #5A2E17;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Сетка товаров (тортов) - 3 колонки на ПК */
+        .cakes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Карточка торта */
+        .cake-item {
+            background-color: #5A2E17; 
+            border-radius: 14px;
+            padding: 20px; 
+            display: flex;
+            flex-direction: column;
+            text-decoration: none; 
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .cake-item:hover {
+            transform: scale(1.02); 
+        }
+        .cake-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px; 
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Информация о торте */
+        .cake-name {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .cake-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Чтобы кнопки всегда были на одном уровне */
+        }
+
+        /* Нижняя часть карточки (Цена + Кнопка) */
+        .cake-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        .cake-price {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            background-color: #C25A27;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #a4491e;
+        }
+
+        /* Адаптивность под смартфоны */
+        @media (max-width: 1024px) {
+            .cakes-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                height: 100px; 
+            }
+            .brand-title { 
+                font-size: 28px; 
+            }
+            .header-top {
+                flex-direction: column-reverse;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .menu-main-title {
+                position: static;
+                transform: none;
+            }
+            .back-box {
+                align-self: flex-start;
+                font-size: 20px;
+            }
+            .cakes-grid {
+                grid-template-columns: 1fr; /* 1 колонка на телефонах */
+                gap: 1.5rem;
+            }
+            .cake-item {
+                padding: 15px;
+            }
+            .cake-item img {
+                height: 240px;
+            }
+            .cake-name {
+                font-size: 18px;
+            }
+            .cake-price {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта с текстом поверх баннера -->
+    <div class="header-container">
+      <img src="5.webp" alt="Баннер пекарни" class="header-banner">
+        <h1 class="brand-title"><a href="main.html">НАСТОЯЩИЙ ХЛЕБ</a></h1>
+    </div>
+
+    <div class="container">
+        
+        <!-- Секция возврата назад и заголовка меню -->
+        <div class="header-top">
+            <!-- Ссылка-стрелка "Назад в каталог" -->
+            <a href="menu.html" class="back-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>В меню</span>
+            </a>
+            <h2 class="menu-main-title">Торты</h2>
+        </div>
+
+        <!-- Сетка тортов -->
+        <div class="cakes-grid">
+            
+            <!-- Торт 1 -->
+            <div class="cake-item">
+                <img src="24.webp" alt="Шоколадный торт">
+                <div class="cake-name">Шоколадный трюфель</div>
+                <div class="cake-description">Насыщенные шоколадные бисквиты, пропитанные коньячным сиропом, с нежным кремом из темного бельгийского шоколада.</div>
+                <div class="cake-footer">
+                    <div class="cake-price">2 400 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Торт 2 -->
+            <div class="cake-item">
+                <img src="25.webp" alt="Клубничный торт">
+                <div class="cake-name">Клубничное облако</div>
+                <div class="cake-description">Легкий ванильный мусс, прослойка из спелой садовой клубники и воздушный воздушный бисквит. Идеальный летний выбор.</div>
+                <div class="cake-footer">
+                    <div class="cake-price">2 100 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Торт 3 -->
+            <div class="cake-item">
+                <img src="26.jpg" alt="Черничный торт">
+                <div class="cake-name">Черничный йогурт</div>
+                <div class="cake-description">Низкокалорийный торт на основе натурального йогурта и свежей лесной черники с тонким песочным коржом.</div>
+                <div class="cake-footer">
+                    <div class="cake-price">1 950 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Торт 4 -->
+            <div class="cake-item">
+                <img src="27.webp" alt="Карамельный торт">
+                <div class="cake-name">Соленая карамель</div>
+                <div class="cake-description">Хрустящее пралине, домашняя жидкая соленая карамель и нежнейший сливочно-сырный крем муслин.</div>
+                <div class="cake-footer">
+                    <div class="cake-price">2 600 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Торт 5 -->
+            <div class="cake-item">
+                <img src="28.webp" alt="Фисташковый торт">
+                <div class="cake-name">Фисташка-Малина</div>
+                <div class="cake-description"> Сочные шифоновые бисквиты с добавлением натуральной фисташковой пасты и дробленых орехов сочетаются с нежным воздушным крем-чизом на основе маскарпоне.</div>
+                <div class="cake-footer">
+                    <div class="cake-price">1 600 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+        </html>

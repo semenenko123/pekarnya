@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настоящий хлеб - Каталог</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        /* Блок 1: Верхний баннер */
+        .header-container {
+            position: relative;
+            width: 100%;
+            height: 180px; 
+            overflow: hidden;
+        }
+        .header-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* ИЗМЕНЕНО: Стили заголовка изменены для точного соответствия фото */
+        .brand-title {
+            position: absolute;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%); /* Идеальное центрирование по вертикали */
+            margin: 0;
+            color: #C25A27;
+            font-size: 56px; /* Увеличен размер букв */
+            font-weight: 900; /* Максимальная жирность */
+            font-style: italic; /* Добавлен наклон (курсив) как на фото */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2; /* ДОБАВЛЕНО: Выводит заголовок над картинкой, чтобы клик срабатывал */
+        }
+
+        /* ДОБАВЛЕНО: Стили для ссылки внутри заголовка */
+        .brand-title a {
+            color: inherit; /* Наследует оранжевый цвет */
+            text-decoration: none; /* Убирает подчеркивание */
+            display: inline-block;
+            cursor: pointer; /* Делает курсор в виде пальца при наведении */
+        }
+        .brand-title a:hover {
+            opacity: 0.9; /* Небольшой эффект при наведении */
+        }
+
+        /* Общий контейнер на весь экран */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Поиск и подзаголовок МЕНЮ */
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        /* ИЗМЕНЕНО: Добавлены стили для масштабирования иконки */
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #000000;
+            cursor: pointer;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .search-box svg {
+            width: 32px;
+            height: 32px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            color: #5A2E17;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Сетка категорий меню */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Карточка меню в стиле макета */
+        .menu-item {
+            background-color: #5A2E17; 
+            border-radius: 14px;
+            padding: 20px 20px 0 20px; 
+            display: flex;
+            flex-direction: column;
+            text-decoration: none; 
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .menu-item:hover {
+            transform: scale(1.01); 
+        }
+        .menu-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 10px; 
+            display: block;
+        }
+
+        /* Текст категории с подчеркиванием */
+        .menu-item-text {
+            color: white;
+            padding: 20px 0;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .menu-item-text span {
+            border-bottom: 3px solid white; 
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+
+        /* Адаптивность под смартфоны */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 100px; 
+            }
+            .brand-title { 
+                font-size: 28px; 
+            }
+            .header-top {
+                flex-direction: column-reverse;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .menu-main-title {
+                position: static;
+                transform: none;
+            }
+            .search-box {
+                align-self: flex-start;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr; 
+                gap: 1.5rem;
+            }
+            .menu-item {
+                padding: 12px 12px 0 12px;
+            }
+            .menu-item img {
+                height: 250px;
+            }
+            .menu-item-text {
+                font-size: 18px;
+                padding: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта с текстом поверх баннера -->
+    <div class="header-container">
+        <img src="5.webp" alt="Баннер пекарни" class="header-banner">
+        <!-- ИЗМЕНЕНО: Текст обернут в ссылку на главную (index.html) -->
+        <h1 class="brand-title"><a href="main.html">НАСТОЯЩИЙ ХЛЕБ</a></h1>
+    </div>
+
+    <div class="container">
+        
+        <!-- Секция поиска и заголовка меню -->
+        <div class="header-top">
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Поиск</span>
+            </div>
+            <h2 class="menu-main-title">Меню</h2>
+        </div>
+
+        <!-- Сетка категорий -->
+        <div class="menu-grid">
+            
+            <!-- Торты -->
+            <a href="cake.html" class="menu-item">
+                <img src="6.jpeg" alt="Торты">
+                <div class="menu-item-text"><span>Торты</span></div>
+            </a>
+
+            <!-- Выпечка -->
+            <a href="bread.html" class="menu-item">
+                <img src="7.jpg" alt="Выпечка">
+                <div class="menu-item-text"><span>Выпечка</span></div>
+            </a>
+
+            <!-- Горячие напитки -->
+            <a href="hot.html" class="menu-item">
+                <img src="8.jpg" alt="Горячие напитки">
+                <div class="menu-item-text"><span>Горячие напитки</span></div>
+            </a>
+
+            <!-- Холодные напитки -->
+            <a href="cold.html" class="menu-item">
+                <img src="9.webp" alt="Холодные напитки">
+                <div class="menu-item-text"><span>Холодные напитки</span></div>
+            </a>
+
+        </div>
+ 
+    </div>
+
+</body>
+</html>

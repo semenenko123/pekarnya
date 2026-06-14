@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настоящий хлеб - Личный кабинет</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #ffffff; /* Белый фон для всей страницы */
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Контейнер теперь всегда занимает 100% ширины экрана */
+        .page-wrapper {
+            width: 100%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Блок 1: Верхний баннер */
+        .level-1 {
+            width: 100%;
+            height: 180px; /* Увеличена высота для больших экранов ПК */
+            position: relative;
+            overflow: hidden;
+        }
+        .level-1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .level-1 h1 {
+            position: absolute;
+            left: 4%;
+            top: 52%;
+            transform: translateY(-50%); /* Точное центрирование по вертикали */
+            margin: 0;
+            color: #C25A27; /* ИЗМЕНЕНО: Более глубокий, насыщенный темно-оранжевый цвет с фото */
+            text-transform: uppercase;
+            letter-spacing: 2px; /* ИЗМЕНЕНО: Увеличено расстояние между буквами как на фото */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* ИЗМЕНЕНО: Тонкая темная тень для эффекта вдавленности в текстуру */
+            font-size: 56px; /* Увеличен размер букв */
+            font-weight: 900; /* Максимальная жирность */
+            font-style: italic;       
+            z-index: 2; /* ДОБАВЛЕНО: Выводит заголовок на передний план, чтобы по нему можно было кликнуть */
+        }
+        
+        /* Стили для ссылки в заголовке */
+        .level-1 h1 a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer; /* ДОБАВЛЕНО: Курсор-палец при наведении */
+        }
+        .level-1 h1 a:hover {
+            opacity: 0.9; /* Эффект при наведении */
+        }
+
+        /* Блок 2: Секция с меню */
+        .menu-container {
+            width: 100%;
+            padding: 60px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+        .menu-card {
+            background: #5A2E17;
+            border-radius: 14px;
+            width: 50%; /* На ПК карточка занимает половину экрана */
+            max-width: 650px; /* Немного увеличили ширину под крупный текст */
+            min-width: 290px;
+            padding: 25px 45px; /* Настроили внутренние поля */
+            box-sizing: border-box;
+        }
+        .menu-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card li {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Тонкая белая разделительная полоса */
+            padding: 20px 0; /* Равномерные отступы сверху и снизу от линии */
+        }
+
+        .menu-card li:last-child {
+            border-bottom: none;
+        }
+
+        .menu-card li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 36px; /* Значительно увеличен размер шрифта на ПК */
+            font-weight: 900; /* Максимальная жирность текста */
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.2s;
+        }
+        .menu-card li a:hover {
+            opacity: 0.8;
+        }
+        .menu-card li a:before {
+            content: "●";
+            margin-right: 25px;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        /* Блок 3: Фото витрины */
+        .gallery-block {
+            width: 100%;
+            height: 500px; /* Увеличена высота витрины для ПК */
+            overflow: hidden;
+        }
+        .gallery-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Блок 4: Футер */
+        .level-4 {
+            width: 100%;
+            background: #5A2E17;
+            color: #ffffff;
+            padding: 26px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Адаптивность под смартфоны */
+        @media (max-width: 768px) {
+            .level-1 { 
+                height: 100px; /* Компактный баннер для телефонов */
+            }
+            .level-1 h1 { 
+                font-size: 28px; 
+            }
+            .menu-container {
+                padding: 40px 0; 
+            }
+            .menu-card { 
+                width: 85%; 
+                padding: 15px 25px; 
+            }
+            .menu-card li {
+                padding: 14px 0; 
+            }
+            .menu-card li a { 
+                font-size: 22px; 
+                letter-spacing: 1px;
+            }
+            .menu-card li a:before {
+                margin-right: 15px;
+                font-size: 18px;
+            }
+            .gallery-block { 
+                height: 280px; 
+            }
+            .level-4 { 
+                font-size: 18px; 
+                padding: 16px 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Шапка -->
+        <header class="level-1">
+            <img src="5.webp" alt="Баннер хлеб">
+            <h1><a href="main.html">НАСТОЯЩИЙ ХЛЕБ</a></h1>
+        </header>
+
+        <!-- Меню -->
+        <main class="menu-container">
+            <div class="menu-card">
+                <ul>      
+                    <li><a href="lk.html">ДАННЫЕ</a></li>
+                    <li><a href="lk.html">ИСТОРИЯ ЗАКАЗОВ</a></li>
+                    <li><a href="lk.html">БАЛЛЫ</a></li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Витрина -->
+        <section class="gallery-block">
+            <img src="4.jpg" alt="Витрина кондитерской">
+        </section>
+
+        <!-- Подвал -->
+        <footer class="level-4">
+            ЖДЕМ ВАС СНОВА!
+        </footer>
+
+    </div>
+
+</body>
+</html>

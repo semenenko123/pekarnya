@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настоящий хлеб - Холодные напитки</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            overflow-x: hidden; /* Предотвращает появление горизонтальной прокрутки из-за футера */
+        }
+
+        /* Блок 1: Верхний баннер */
+        .header-container {
+            position: relative;
+            width: 100%;
+            height: 180px; 
+            overflow: hidden;
+        }
+        .header-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .brand-title {
+            position: absolute;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            color: #C25A27;
+            font-size: 56px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .brand-title a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .brand-title a:hover {
+            opacity: 0.9;
+        }
+
+        /* Общий контейнер */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 0 1.5rem;
+        }
+
+        /* Секция возврата и заголовка */
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        /* Кнопка НАЗАД */
+        .back-box {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #5A2E17;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .back-box svg {
+            width: 28px;
+            height: 28px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            color: #5A2E17;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Сетка товаров (напитков) - 3 колонки на ПК */
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Карточка напитка */
+        .drink-item {
+            background-color: #5A2E17; 
+            border-radius: 14px;
+            padding: 20px; 
+            display: flex;
+            flex-direction: column;
+            text-decoration: none; 
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .drink-item:hover {
+            transform: scale(1.02); 
+        }
+        .drink-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px; 
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Информация о напитке */
+        .drink-name {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .drink-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Чтобы кнопки всегда были на одном уровне */
+        }
+
+        /* Нижняя часть карточки (Цена + Кнопка) */
+        .drink-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        .drink-price {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            background-color: #C25A27;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #a4491e;
+        }
+
+        /* Подвал страницы */
+        .level-4 {
+            width: 100vw;
+            background: #5A2E17;
+            color: #ffffff;
+            padding: 26px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-left: calc(-50vw + 50%);
+            margin-top: 2rem;
+        }
+
+        /* Адаптивность под смартфоны */
+        @media (max-width: 1024px) {
+            .drinks-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                height: 100px; 
+            }
+            .brand-title { 
+                font-size: 28px; 
+            }
+            .header-top {
+                flex-direction: column-reverse;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .menu-main-title {
+                position: static;
+                transform: none;
+            }
+            .back-box {
+                align-self: flex-start;
+                font-size: 20px;
+            }
+            .drinks-grid {
+                grid-template-columns: 1fr; /* 1 колонка на телефонах */
+                gap: 1.5rem;
+            }
+            .drink-item {
+                padding: 15px;
+            }
+            .drink-item img {
+                height: 240px;
+            }
+            .drink-name {
+                font-size: 18px;
+            }
+            .drink-price {
+                font-size: 20px;
+            }
+            .level-4 {
+                font-size: 18px;
+                padding: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта с текстом поверх баннера -->
+    <div class="header-container">
+        <img src="5.webp" alt="Баннер пекарни" class="header-banner">
+        <h1 class="brand-title"><a href="main.html">НАСТОЯЩИЙ ХЛЕБ</a></h1>
+    </div>
+
+    <div class="container">
+        
+        <!-- Секция возврата назад и заголовка меню -->
+        <div class="header-top">
+            <a href="menu.html" class="back-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>В меню</span>
+            </a>
+            <h2 class="menu-main-title">Холодные напитки</h2>
+        </div>
+
+        <!-- Сетка напитков -->
+        <div class="drinks-grid">
+            
+            <!-- Напиток 1 -->
+            <div class="drink-item">
+                <img src="10.webp" alt="Классический лимонад">
+                <div class="drink-name">Лимонад Классический</div>
+                <div class="drink-description">Освежающий напиток собственного приготовления на основе свежевыжатого лимонного сока, мяты, капли сахарного сиропа и льда.</div>
+                <div class="drink-footer">
+                    <div class="drink-price">190 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Напиток 2 -->
+            <div class="drink-item">
+                <img src="11.webp" alt="Апельсиновый фреш">
+                <div class="drink-name">Апельсиновый фреш</div>
+                <div class="drink-description">Натуральный свежевыжатый сок из сочных отборных апельсинов. Подается охлажденным — идеальный источник витамина C.</div>
+                <div class="drink-footer">
+                    <div class="drink-price">240 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Напиток 3 -->
+            <div class="drink-item">
+                <img src="12.jpg" alt="Айс Латте">
+                <div class="drink-name">Айс Латте</div>
+                <div class="drink-description">Охлажденная кофейная классика: порция крепкого эспрессо смешивается со свежим молоком и кубиками льда.</div>
+                <div class="drink-footer">
+                    <div class="drink-price">210 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+            <!-- Напиток 4 -->
+            <div class="drink-item">
+                <img src="13.webp" alt="Л12">
+                <div class="drink-name">Лимонад Малина-Маракуйя</div>
+                <div class="drink-description">Яркий тропический лимонад с добавлением натурального пюре спелой маракуйи и сочных свежих ягод домашней малины.</div>
+                <div class="drink-footer">
+                    <div class="drink-price">220 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+
+             <div class="drink-item">
+                <img src="14.jpg" alt="Ате">
+                <div class="drink-name">Коктейль Ванильный</div>
+                <div class="drink-description">Классический густой молочный коктейль на основе нежного сливочного пломбира, молока и натурального экстракта ванили.</div>
+                <div class="drink-footer">
+                    <div class="drink-price">230 ₽</div>
+                    <button class="order-btn">Заказать</button>
+                </div>
+            </div>
+            </html>
