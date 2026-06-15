@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настоящий Хлеб</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .hero-bg {
+      background-image: url('1.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white m-0 p-0 box-border">
+
+  <div class="w-full flex flex-col">
+    
+    <!-- Шапка -->
+    <header class="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#C25A27] tracking-wide uppercase">НАСТОЯЩИЙ ХЛЕБ</h1>
+      
+      <!-- Бесшовное выпадающее меню -->
+      <div class="relative group shrink-0">
+         <button class="text-gray-700 group-hover:text-[#C25A27] transition flex items-center p-2 focus:outline-none" aria-label="Личный кабинет">
+            <i class="fa-solid fa-user text-2xl sm:text-3xl"></i>
+         </button>
+         
+         <div class="absolute right-0 top-full pt-2 w-44 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <div class="bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden">
+               <ul class="py-1 text-sm font-medium">
+                  <li>
+                     <button id="openLogin" class="w-full text-left block px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-[#C25A27] transition focus:outline-none">
+                        Авторизоваться
+                     </a>
+                  </li>
+                  <li>
+                     <!-- ИСПРАВЛЕНО: Ссылка заменена на кнопку с id для открытия модального окна -->
+                     <button id="openRegister" class="w-full text-left block px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-[#C25A27] border-t border-gray-100 transition focus:outline-none">
+                        Зарегистрироваться
+                     </button>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+    </header>
+
+    <!-- Навигация -->
+     <nav class="w-full border-b border-t border-gray-200 py-4 bg-white">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+        <ul class="flex justify-around sm:justify-center sm:gap-20 items-center text-base sm:text-lg md:text-xl font-black tracking-widest">
+          <li>
+            <a href="index.html" class="flex items-center gap-2 hover:text-[#C25A27] transition">
+              <i class="fa-solid fa-percent text-sm sm:text-base border-2 border-gray-800 rounded-sm p-0.5 font-black"></i>
+              <span>АКЦИИ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center gap-2 hover:text-[#C25A27] transition">
+              <i class="fa-solid fa-certificate text-lg sm:text-xl"></i>
+              <span>НОВОСТИ</span>
+            </a>
+          </li>
+          <li>
+            <a href="menu.html" class="flex items-center gap-2 hover:text-[#C25A27] transition">
+              <i class="fa-solid fa-cake-candles text-lg sm:text-xl"></i>
+              <span>МЕНЮ</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Главный баннер -->
+    <section class="hero-bg h-[200px] sm:h-[300px] md:h-[450px] w-full relative flex items-center justify-end px-4 sm:px-8 md:px-16">
+      <h2 class="text-white text-base sm:text-xl md:text-3xl font-semibold text-right leading-relaxed drop-shadow-lg max-w-[280px] sm:max-w-[450px] md:max-w-[600px]">
+        Свежая выпечка каждый день<br>из натуральных ингредиентов
+      </h2>
+    </section>
+
+    <!-- Сетка баннеров -->
+    <section class="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <!-- Акции -->
+        <a href="index.html" class="relative h-[200px] sm:h-[260px] md:h-[380px] block group overflow-hidden rounded-sm">
+          <img src="2.webp" class="w-full h-full object-cover transition duration-300 group-hover:scale-102" alt="Акции">
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3 class="text-lg sm:text-xl md:text-2xl font-black leading-tight tracking-wide drop-shadow-md">АКЦИИ И<br>ПРЕДЛОЖЕНИЯ</h3>
+          </div>
+        </a>
+
+        <!-- Работа у нас -->
+        <a href="index.html" class="relative h-[200px] sm:h-[260px] md:h-[380px] block group overflow-hidden rounded-sm">
+          <img src="3.webp" class="w-full h-full object-cover transition duration-300 group-hover:scale-102" alt="Работай с нами">
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute bottom-4 right-4 text-white text-right">
+            <h3 class="text-lg sm:text-xl md:text-2xl font-black leading-tight tracking-wide drop-shadow-md">РАБОТАЙ С<br>НАМИ!</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="w-full bg-white border-t border-gray-100 py-6 mt-4">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+        <h4 class="font-bold text-[#5A2E17] text-xs sm:text-sm tracking-wider mb-1">КОНТАКТЫ</h4>
+        <p class="text-base sm:text-lg font-bold text-gray-900 mb-3">+7 (999) 545-45-55</p>
+        
+        <!-- Иконки соцсетей -->
+        <div class="flex gap-2.5">
+          <a href="#" class="w-8 h-8 bg-[#4680C2] text-white rounded-full flex items-center justify-center text-sm hover:opacity-90 transition">
+            <i class="fa-brands fa-vk"></i>
+          </a>
+          <a href="#" class="w-8 h-8 bg-[#2CA5E0] text-white rounded-full flex items-center justify-center text-xs hover:opacity-90 transition">
+            <i class="fa-solid fa-paper-plane"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+<!-- Модальное окно авторизации -->
+<div id="loginModal" style="background-color: rgba(0, 0, 0, 0.5); z-index: 9999; transition: opacity 0.3s ease, visibility 0.3s ease;" class="fixed inset-0 backdrop-blur-sm flex items-center justify-center opacity-0 invisible pointer-events-none">
+    <div style="transition: transform 0.3s ease;" class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 m-4 relative transform scale-95 id-modal-content">
+        
+        <!-- Кнопка закрытия (крестик) -->
+        <button id="closeLogin" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition focus:outline-none">
+            <svg style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <!-- Заголовок окна -->
+        <h3 class="text-2xl font-bold text-gray-800 text-center uppercase mb-6 tracking-wide">Вход в кабинет</h3>
+
+        <!-- ИСПРАВЛЕНО: Теперь форма отправляет данные (или имитирует вход) на страницу профиля -->
+        <form action="lk.html" method="GET" class="space-y-4">
+            <div>
+                <label for="username" class="block text-sm font-semibold text-gray-700 mb-1">Имя пользователя или Email</label>
+                <input type="text" id="username" name="username" required placeholder="Введите ваше имя" 
+                       class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#C25A27] focus:ring-2 focus:ring-orange-100 transition">
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-semibold text-gray-700 mb-1">Пароль</label>
+                <input type="password" id="password" name="password" required placeholder="••••••••" 
+                       class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:border-[#C25A27] focus:ring-2 focus:ring-orange-100 transition">
+            </div>
+
+            <!-- Кнопка отправки формы (автоматически перенаправит на адрес из атрибута action) -->
+            <button type="submit" class="w-full block text-center bg-[#C25A27] hover:bg-[#a4491e] text-white font-bold py-3 px-4 rounded-lg uppercase tracking-wider transition-colors mt-6 shadow-md focus:outline-none">
+                Войти
+            </button>
+        </form>
+    </div>
+</div>
+
+
+  <!-- НОВОЕ: Всплывающее окно (Модальное окно) регистрации -->
+  <div id="registerModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[100] opacity-0 invisible pointer-events-none transition-all duration-300">
+    <!-- Контейнер формы -->
+    <div class="bg-white w-full max-w-md p-6 sm:p-8 rounded-lg shadow-2xl relative mx-4 transform scale-95 transition-all duration-300" id="modalContainer">
+      <!-- Кнопка закрытия (крестик) -->
+      <button id="closeRegister" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition text-xl focus:outline-none">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Заголовок формы -->
+      <h3 class="text-xl sm:text-2xl font-extrabold text-[#C25A27] tracking-wide mb-6 uppercase text-center">Регистрация</h3>
+
+      <!-- Форма ввода данных -->
+      <form id="regForm" action="#" method="POST" class="flex flex-col gap-4">
+        <div class="form-group">
+                <label for="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">ФИО:</label>
+                <input type="text" id="fullname" maxlength="100" name="fullname" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Разрешены только буквы" required class="w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-[#C25A27] transition">
+            </div>
+<div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" maxlength="50" name="email" required class="w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-[#C25A27] transition">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" maxlength="12" pattern="^\+?[0-9]+" title="Номер может содержать только цифры и +" required class="w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-[#C25A27] transition">
+            </div>
+            
+            <div class="form-group flex items-center gap-4">
+    <!-- Надпись слева -->
+    <span class="text-sm font-bold text-gray-800 shrink-0">Дата рождения:</span>
+    
+    <!-- Контейнер для селектов справа -->
+    <div class="date-group flex gap-2">
+        
+        <!-- КАСТОМНЫЙ СЕЛЕКТ: ЧИСЛО -->
+        <div class="relative w-32 group/select pb-2">
+            <!-- Скрытый настоящий инпут для отправки формы -->
+            <input type="hidden" id="day" name="day" required>
+            <!-- Видимая кнопка-заглушка -->
+            <button type="button" class="w-full border border-gray-200 bg-white rounded-md px-3 py-2 flex justify-between items-center focus:outline-none focus:border-[#C25A27] text-left text-gray-800 text-sm">
+                <span class="selected-val">Число</span>
+                <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200 group-hover/select:rotate-180"></i>
+            </button>
+            <!-- Исправлено: pt-[4px] и -bottom-[4px] создают бесшовный мост -->
+            <div class="absolute left-0 top-full -mt-[1px] pt-[5px] w-full opacity-0 invisible pointer-events-none group-hover/select:opacity-100 group-hover/select:visible group-hover/select:pointer-events-auto transition-all duration-150 z-50">
+                <div class="bg-white border border-gray-200 rounded-md shadow-lg max-h-48 overflow-y-auto">
+                    <ul class="py-1 text-sm text-gray-700">
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">1</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">2</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">3</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">4</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">5</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">6</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">7</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">8</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">9</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">10</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">11</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">12</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">13</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">14</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">15</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">16</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">17</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">18</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">19</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">20</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">21</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">22</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">23</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">24</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">25</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">26</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">27</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">28</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">29</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">30</li>
+                        <li onclick="selectValue(this, 'day')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">31</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- КАСТОМНЫЙ СЕЛЕКТ: МЕСЯЦ -->
+        <div class="relative w-36 group/select pb-2">
+            <input type="hidden" id="month" name="month" required>
+            <button type="button" class="w-full border border-gray-200 bg-white rounded-md px-3 py-2 flex justify-between items-center focus:outline-none focus:border-[#C25A27] text-left text-gray-800 text-sm">
+                <span class="selected-val">Месяц</span>
+                <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200 group-hover/select:rotate-180"></i>
+            </button>
+            <!-- Исправлено: pt-[4px] и -bottom-[4px] создают бесшовный мост -->
+            <div class="absolute left-0 top-full -mt-[1px] pt-[5px] w-full opacity-0 invisible pointer-events-none group-hover/select:opacity-100 group-hover/select:visible group-hover/select:pointer-events-auto transition-all duration-150 z-50">
+                <div class="bg-white border border-gray-200 rounded-md shadow-lg max-h-48 overflow-y-auto">
+                    <ul class="py-1 text-sm text-gray-700">
+                        <li onclick="selectValue(this, 'month', '1')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Январь</li>
+                        <li onclick="selectValue(this, 'month', '2')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Февраль</li>
+                        <li onclick="selectValue(this, 'month', '3')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Март</li>
+                        <li onclick="selectValue(this, 'month', '4')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Апрель</li>
+                        <li onclick="selectValue(this, 'month', '5')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Май</li>
+                        <li onclick="selectValue(this, 'month', '6')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Июнь</li>
+                        <li onclick="selectValue(this, 'month', '7')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Июль</li>
+                        <li onclick="selectValue(this, 'month', '8')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Август</li>
+                        <li onclick="selectValue(this, 'month', '9')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Сентябрь</li>
+                        <li onclick="selectValue(this, 'month', '10')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Октябрь</li>
+                        <li onclick="selectValue(this, 'month', '11')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Ноябрь</li>
+                        <li onclick="selectValue(this, 'month', '12')" class="px-3 py-1.5 hover:bg-orange-50 hover:text-[#C25A27] cursor-pointer">Декабрь</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" maxlength="15" minlength="3" pattern="(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).+" title="Пароль должен содержать цифры, английские буквы и спецсимволы" required class="w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-[#C25A27] transition">
+            </div>
+        
+        <!-- Кнопка отправки -->
+         <button type="submit" id="submitBtn" class="w-full bg-gray-300 text-gray-700 font-bold py-3 px-4 rounded-md transition mt-2 tracking-wider uppercase text-sm cursor-pointer">
+          Зарегистрироваться
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ОБЪЕДИНЕННЫЙ И ИСПРАВЛЕННЫЙ СКРИПТ -->
+<script>
+    // 1. Функция создания всплывающего окна ВНУТРИ формы при успешном сабмите
+    function showFormSuccessWindow(formElement, message) {
+        if (!formElement) return;
+
+        formElement.classList.add('relative');
+
+        // Создаем контейнер внутреннего окна успеха
+        const successWindow = document.createElement('div');
+        successWindow.className = "absolute inset-0 honest-success-layer z-50 flex flex-col items-center justify-center p-6 bg-white/95 rounded-md shadow-inner transition-all duration-500 transform scale-95 opacity-0";
+        
+        successWindow.innerHTML = `
+            <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-green-50 border border-green-200 shadow-sm animate-bounce">
+                <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://w3.org">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 text-center mb-1">Регистрация завершена!</h3>
+            <p class="text-sm font-medium text-green-600 text-center px-4">${message}</p>
+        `;
+
+        formElement.appendChild(successWindow);
+
+        // Анимация проявления
+        setTimeout(() => {
+            successWindow.classList.remove('scale-95', 'opacity-0');
+            successWindow.classList.add('scale-100', 'opacity-100');
+        }, 30);
+    }
+
+    // 2. Функция выбора даты (для кастомных выпадающих списков)
+    function selectValue(element, inputId, customValue = null) {
+      const parentContainer = element?.closest('.group\\/select');
+      if (!parentContainer) return;
+      
+      const displaySpan = parentContainer.querySelector('.selected-val');
+      const hiddenInput = document.getElementById(inputId);
+      
+      if (displaySpan) {
+          displaySpan.innerText = element.innerText;
+          displaySpan.classList.remove('text-gray-400');
+          displaySpan.classList.add('text-gray-800');
+      }
+      
+      if (hiddenInput) {
+          hiddenInput.value = customValue ? customValue : element.innerText;
+          // Важно: генерируем событие input, чтобы кнопка сразу узнала об изменениях
+          hiddenInput.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }
+
+    // 3. Основная логика работы интерфейса
+    document.addEventListener('DOMContentLoaded', () => {
+        const openBtn = document.getElementById('openRegister');
+        const closeBtn = document.getElementById('closeRegister');
+        const modal = document.getElementById('registerModal');
+        const modalContainer = document.getElementById('modalContainer');
+        const form = document.getElementById('regForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageBox = document.getElementById('message-box');
+
+        // Функция проверки валидности всей формы (включая дату рождения)
+        function checkFormValidity() {
+          if (!form || !submitBtn) return false;
+
+          // Проверяем кастомные скрытые поля даты рождения
+          const dayInput = document.getElementById('day');
+          const monthInput = document.getElementById('month');
+          const isDateValid = dayInput && monthInput && dayInput.value && monthInput.value;
+
+          // Проверяем стандартную HTML5 валидацию (required, pattern) и нашу дату
+          if (form.checkValidity() && isDateValid) {
+            // Если ВСЁ корректно: кнопка становится ОРАНЖЕВОЙ
+            submitBtn.classList.remove('bg-gray-300', 'text-gray-700');
+            submitBtn.classList.add('bg-[#C25A27]', 'hover:bg-[#a64b1f]', 'text-white');
+            return true;
+          } else {
+            // Если есть пустые или некорректные поля: кнопка СЕРАЯ
+            submitBtn.classList.add('bg-gray-300', 'text-gray-700');
+            submitBtn.classList.remove('bg-[#C25A27]', 'hover:bg-[#a64b1f]', 'text-white');
+            return false;
+          }
+        }
+
+        if (form) {
+            // Слушаем живой ввод пользователя на форме для моментальной перекраски кнопки
+            form.addEventListener('input', checkFormValidity);
+
+            // Обработка отправки формы регистрации
+            form.addEventListener('submit', function(e) {
+              e.preventDefault(); // Полностью отменяем перезагрузку страницы
+
+              // Перед отправкой проверяем, действительно ли форма валидна
+              const isValid = checkFormValidity();
+
+              if (!isValid) {
+                // Если данные некорректны, а пользователь как-то умудрился нажать — выводим ошибку в message-box
+                if (messageBox) {
+                  messageBox.innerHTML = '';
+                  messageBox.className = "text-sm font-medium mb-4 p-3 rounded-md bg-red-50 text-red-600 border border-red-200 block";
+                  
+                  const dayInput = document.getElementById('day');
+                  const monthInput = document.getElementById('month');
+                  if (!dayInput?.value || !monthInput?.value) {
+                    messageBox.innerHTML = "Пожалуйста, полностью выберите дату рождения.";
+                  } else {
+                    const invalidInput = form.querySelector('input:invalid');
+                    messageBox.innerHTML = invalidInput?.title || "Пожалуйста, проверьте правильность заполнения полей.";
+                    if (invalidInput) invalidInput.focus();
+                  }
+                }
+                return; // Прерываем выполнение, не показываем окно успеха
+              }
+
+              // --- ДАННЫЕ КОРРЕКТНЫ: ЗАПУСКАЕМ ОКНО УСПЕХА ---
+              if (messageBox) messageBox.classList.add('hidden'); // Прячем блок ошибок, если он горел
+
+              showFormSuccessWindow(form, "Вы успешно зарегистрированы");
+
+              // Блокируем саму кнопку на время задержки
+              if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+              }
+
+              // Ровно через 2 секунды перенаправляем на lk.html
+              setTimeout(() => {
+                window.location.href = 'lk.html';
+              }, 2000);
+            });
+        }
+
+        // Открытие модального окна регистрации
+        if (openBtn && modal) {
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+                if (modalContainer) {
+                    modalContainer.classList.remove('scale-95');
+                    modalContainer.classList.add('scale-100');
+                }
+                
+                // Удаляем старое окно успеха, если оно осталось
+                if (form) {
+                    const oldSuccess = form.querySelector('.honest-success-layer');
+                    if (oldSuccess) oldSuccess.remove();
+                }
+
+                if (messageBox) messageBox.classList.add('hidden');
+                
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+                // Запускаем проверку, чтобы кнопка сразу приняла нужный цвет (серый)
+                checkFormValidity(); 
+            });
+        }
+
+        // Закрытие модального окна регистрации
+        const closeRegisterModal = () => {
+            if (!modal) return;
+            modal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            if (modalContainer) {
+                modalContainer.classList.remove('scale-100');
+                modalContainer.classList.add('scale-95');
+            }
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeRegisterModal);
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeRegisterModal();
+            });
+        }
+
+        // --- МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ (LOGIN) ---
+        const loginModal = document.getElementById('loginModal');
+        const openLoginBtn = document.getElementById('openLogin');
+        const closeLoginBtn = document.getElementById('closeLogin');
+        const modalContent = loginModal ? loginModal.querySelector('.id-modal-content') : null;
+
+        if (openLoginBtn && loginModal && modalContent) {
+            openLoginBtn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                loginModal.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            });
+
+            function closeLoginModal() {
+                loginModal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+            }
+
+            if (closeLoginBtn) closeLoginBtn.addEventListener('click', closeLoginModal);
+            loginModal.addEventListener('click', (e) => {
+                if (e.target === loginModal) closeLoginModal();
+            });
+        }
+    });
+</script>
+
+
+</body>
+</html>
